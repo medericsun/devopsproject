@@ -96,14 +96,14 @@
 
     <script>
         document.getElementById('predictButton').addEventListener('click', function () {
-            // 获取用户输入的特征
-            const input = document.getElementById('features').value;
-            const features = input.split(',').map(Number); // 将字符串转为数字数组
 
-            // 构造请求的 JSON 数据
+            const input = document.getElementById('features').value;
+            const features = input.split(',').map(Number);
+
+
             const data = { features: features };
 
-            // 调用后端 API
+
             fetch('http://localhost:5000/predict', {
                 method: 'POST',
                 headers: {
@@ -113,7 +113,7 @@
             })
             .then(response => response.json())
             .then(result => {
-                // 显示预测结果
+
                 document.getElementById('result').innerText = `Prediction: ${result.prediction}`;
             })
             .catch(error => {
